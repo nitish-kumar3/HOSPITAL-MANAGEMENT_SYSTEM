@@ -8,8 +8,6 @@ export const sendMessage = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Please Fill Full Form!", 400));
   }
 
-
-    
   await Message.create({ firstName, lastName, email, phone, message });
   res.status(200).json({
     success: true,
